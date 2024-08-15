@@ -1,0 +1,769 @@
+<html>
+    <body>
+        
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-success bg-gradient px-5 d-none d-lg-block">
+        <div class="row gx-0">
+            <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-twitter fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-linkedin-in fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-instagram fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href=""><i class="fab fa-youtube fw-normal"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <a *ngIf="!isLoggedIn" (click)="signUp()"><small class="me-3 text-light"><i class="bi bi-arrow-right"></i>Register</small></a>
+                    <a *ngIf="!isLoggedIn" (click)="signIn()" style="cursor: pointer;"><small class="me-3 text-light">Login</small></a>
+                    <div class="dropdown">
+                        <a *ngIf="isLoggedIn" href="#" class="dropdown-toggle text-light" data-bs-toggle="dropdown"><small>My Dashboard</small></a>
+                        <div class="dropdown-menu rounded">
+                            <a href="#" class="dropdown-item"><i class="fas fa-user-alt me-2"></i> My Profile</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-comment-alt me-2"></i> Inbox</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-bell me-2"></i> Notifications</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-cog me-2"></i> Account Settings</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-power-off me-2"></i> Log Out</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+    <!-- Navbar & Hero Start -->
+    <div class="container-fluid position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+            <a href="" class="navbar-brand p-0">
+                <!-- <h1 class="m-0">Remotely</h1> -->
+                <img src="assets/logo.png" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a (click)="loadAbout()" class="nav-item nav-link">About</a>
+                    <a href="housing-detail.html" class="nav-item nav-link">Housing</a>
+                   
+                    <a href="blog.html" class="nav-item nav-link">Blog</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Destinations</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="destination.html" class="dropdown-item">Housing</a>
+                            <a href="tour.html" class="dropdown-item">Employment Info</a>
+                            <a href="booking.html" class="dropdown-item">Co-Working Spaces</a>
+                            <a href="gallery.html" class="dropdown-item">Budget Planner</a>
+                            <a href="guides.html" class="dropdown-item">Connect</a>
+                           
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+               
+            </div>
+        </nav>
+
+        <!-- Carousel Start -->
+        <div class="carousel-header">
+            <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active"></li>
+                    <li data-bs-target="#carouselId" data-bs-slide-to="1"></li>
+                    <li data-bs-target="#carouselId" data-bs-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <img src="assets/backgroundlogin.jpg" alt="Image">
+                        <div class="carousel-caption">
+                            <div class="p-3" style="max-width: 900px;">
+                                <h4 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">Explore The World</h4>
+                                <h1 class="display-2 text-capitalize text-white mb-4">Let us Find Your New Home!</h1>
+                                <p class="mb-5 fs-5">Everything you need to know about living and working abroad! 
+                                </p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/travel.jpg" class="img-fluid" alt="Image">
+                        <div class="carousel-caption">
+                            <div class="p-3" style="max-width: 900px;">
+                                <h4 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">Explore The World</h4>
+                                <h1 class="display-2 text-capitalize text-white mb-4">Find Your Perfect Destination</h1>
+                                <p class="mb-5 fs-5">Find the best fit for you and your lifestyle 
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/travel1.jpg" class="img-fluid" alt="Image">
+                        <div class="carousel-caption">
+                            <div class="p-3" style="max-width: 900px;">
+                                <h4 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">Explore The World</h4>
+                                <h1 class="display-2 text-capitalize text-white mb-4">Where to Next?</h1>
+                                <p class="mb-5 fs-5">Let us guide you on your journey 
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon btn bg-success" aria-hidden="false"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+                    <span class="carousel-control-next-icon btn bg-success" aria-hidden="false"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <!-- Carousel End -->
+    </div>
+    <div class="container-fluid search-bar position-relative" style="top: -50%; transform: translateY(-50%);">
+        <div class="container">
+            <div class="position-relative rounded-pill w-100 mx-auto p-5" style="background: rgba(88, 221, 155, 0.8);">
+                <input [(ngModel)]="query" class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Eg: Thailand">
+                <button type="button" (click)="Search()" class="btn btn-success rounded-pill py-2 px-4 position-absolute me-2" style="top: 50%; right: 46px; transform: translateY(-50%);">Search</button>
+            </div>
+        </div>
+    </div>
+    <!-- Navbar & Hero End -->
+
+
+
+    <!-- Gallery Start -->
+    <div class="container-fluid gallery py-5 my-5">
+        <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+            <h5 class="section-title px-3">DESTINATIONS</h5>
+            <h1 class="mb-4">Most Popular Destinations for Remote Workers</h1>
+            <p class="mb-0">Countries favorable for remote workers offer reliable internet, affordable living, safety, and good quality of life, along with flexible visa options and vibrant communities.
+            </p>
+        </div>
+        <div class="tab-class text-center">
+            <ul class="nav nav-pills d-inline-flex justify-content-center mb-5">
+                <li class="nav-item">
+                    <a class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill active" data-bs-toggle="pill" href="#GalleryTab-1">
+                        <span class="text-dark" style="width: 150px;">All</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="d-flex py-2 mx-3 border border-primary bg-light rounded-pill" data-bs-toggle="pill" (click)="loadContinent('Europe')">
+                        <span class="text-dark" style="width: 150px;">Europe</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#">
+                        <span class="text-dark" style="width: 150px;">Asia</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#">
+                        <span class="text-dark" style="width: 150px;">North America</span>
+                    </a>
+                </li>
+
+            </ul>
+            <div class="tab-content">
+                <div id="GalleryTab-1" class="tab-pane fade show p-0 active">
+                    <div class="row g-2">
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-2">
+                            <div class="gallery-item h-100">
+                                <img src="assets/gallery-1.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">Germany</h5>
+                                        <a routerLink="/destination-detail" routerLinkActive="active"(click)="loadDestination('germany', 'assets/gallery-1.jpg')" class="btn-hover text-white" style="cursor: pointer;">See More</a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="assets/gallery-1.jpg" routerLink="/destination-detail" routerLinkActive="active"(click)="loadDestination('germany', 'assets/gallery-1.jpg')" data-lightbox="gallery-1" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                            <div class="gallery-item h-100">
+                                <img src="assets/estonia.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">Estonia</h5>
+                                        <a routerLink="/destination-detail" routerLinkActive="active"(click)="loadDestination('estonia', 'assets/estonia.jpg')" class="btn-hover text-white">See More</a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="assets/estonia.jpg" routerLink="/destination-detail" routerLinkActive="active"(click)="loadDestination('estonia', 'assets/estonia.jpg')" data-lightbox="gallery-2" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-2">
+                            <div class="gallery-item h-100">
+                                <img src="assets/destination-9.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">Japan</h5>
+                                        <a routerLink="/destination-detail" routerLinkActive="active"(click)="loadDestination('japan', 'assets/destination-9.jpg')" class="btn-hover text-white">See More</a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="assets/destination-9.jpg" routerLink="/destination-detail" routerLinkActive="active"(click)="loadDestination('japan', 'assets/destination-9.jpg')" data-lightbox="gallery-3" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                            <div class="gallery-item h-100">
+                                <img src="assets/spain.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">Spain</h5>
+                                        <a routerLink="/destination-detail" routerLinkActive="active"(click)="loadDestination('spain', 'assets/spain.jpg')" class="btn-hover text-white">See More</a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="assets/spain.jpg" routerLink="/destination-detail" routerLinkActive="active"(click)="loadDestination('spain', 'assets/spain.jpg')" data-lightbox="gallery-4" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-2">
+                            <div class="gallery-item h-100">
+                                <img src="assets/indonesia.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">Indonesia</h5>
+                                        <a routerLink="/destination-detail" routerLinkActive="active"(click)="loadDestination('indonesia', 'assets/indonesia.jpg')" class="btn-hover text-white">See More</a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="assets/indonesia.jpg" routerLink="/destination-detail" routerLinkActive="active"(click)="loadDestination('indonesia', 'assets/indonesia.jpg')" data-lightbox="gallery-5" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-2">
+                            <div class="gallery-item h-100">
+                                <img src="assets/mexico.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">Mexico</h5>
+                                        <a routerLink="/destination-detail" routerLinkActive="active"(click)="loadDestination('mexico', 'assets/mexico.jpg')" class="btn-hover text-white">See More</a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="assets/mexico.jpg" routerLink="/destination-detail" routerLinkActive="active"(click)="loadDestination('mexico', 'assets/mexico.jpg')" data-lightbox="gallery-6" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3">
+                            <div class="gallery-item h-100">
+                                <img src="assets/vietnam.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">Vietnam</h5>
+                                        <a routerLink="/destination-detail" routerLinkActive="active"(click)="loadDestination('vietnam', 'assets/vietnam.jpg')" class="btn-hover text-white">See More</a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="assets/vietnam.jpg" routerLink="/destination-detail" routerLinkActive="active"(click)="loadDestination('vietnam', 'assets/vietnam.jpg')" data-lightbox="gallery-7" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-3 col-xl-2">
+                            <div class="gallery-item h-100">
+                                <img src="assets/gallery-8.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">Netherlands</h5>
+                                        <a routerLink="/destination-detail" routerLinkActive="active"(click)="loadDestination('netherlands', 'assets/gallery-8.jpg')" class="btn-hover text-white">See More</a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="assets/gallery-8.jpg" routerLink="/destination-detail" routerLinkActive="active"(click)="loadDestination('netherlands', 'assets/gallery-8.jpg')" data-lightbox="gallery-8" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3">
+                            <div class="gallery-item h-100">
+                                <img src="assets/gallery-9.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">Thailand</h5>
+                                        <a routerLink="/destination-detail" routerLinkActive="active"(click)="loadDestination('thailand')" class="btn-hover text-white">See More</a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="assets/gallery-9.jpg" routerLink="/destination-detail" routerLinkActive="active"(click)="loadDestination('thailand')" data-lightbox="gallery-9" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-3 col-xl-2">
+                            <div class="gallery-item h-100">
+                                <img src="assets/portugal.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">Portugal</h5>
+                                        <a routerLink="/destination-detail" routerLinkActive="active"(click)="loadDestination('portugal', 'assets/portugal.jpg')" class="btn-hover text-white">See More</a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="assets/portugal.jpg" routerLink="/destination-detail" routerLinkActive="active"(click)="loadDestination('portugal', 'assets/portugal.jpg')" data-lightbox="gallery-10" class="my-auto"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="GalleryTab-2" class="tab-pane fade show p-0">
+                    <div class="row g-2">
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                            <div class="gallery-item h-100">
+                                <img src="assets/gallery-2.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="assets/gallery-2.jpg" data-lightbox="gallery-2" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-2">
+                            <div class="gallery-item h-100">
+                                <img src="assets/gallery-3.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="assets/gallery-3.jpg" data-lightbox="gallery-3" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="GalleryTab-3" class="tab-pane fade show p-0">
+                    <div class="row g-2">
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                            <div class="gallery-item h-100">
+                                <img src="assets/gallery-2.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="assets/gallery-2.jpg" data-lightbox="gallery-2" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-2">
+                            <div class="gallery-item h-100">
+                                <img src="assets/gallery-3.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="assets/gallery-3.jpg" data-lightbox="gallery-3" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="GalleryTab-4" class="tab-pane fade show p-0">
+                    <div class="row g-2">
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                            <div class="gallery-item h-100">
+                                <img src="assets/gallery-2.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="assets/gallery-2.jpg" data-lightbox="gallery-2" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-2">
+                            <div class="gallery-item h-100">
+                                <img src="assets/gallery-3.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="assets/gallery-3.jpg" data-lightbox="gallery-3" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="GalleryTab-5" class="tab-pane fade show p-0">
+                    <div class="row g-2">
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                            <div class="gallery-item h-100">
+                                <img src="assets/gallery-2.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="assets/gallery-2.jpg" data-lightbox="gallery-2" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-2">
+                            <div class="gallery-item h-100">
+                                <img src="assets/gallery-3.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="assets/gallery-3.jpg" data-lightbox="gallery-3" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Gallery End -->
+
+    <!-- Tour Booking Start -->
+    <div class="container-fluid booking py-5">
+        <div class="container py-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6">
+                    <h5 class="section-booking-title pe-3">Book a Consultation</h5>
+                    <h1 class="text-white mb-4">Online Booking</h1>
+                    <p class="text-white mb-4"> Let your help you get to your destination seamlessly. We are experts in the relocation process. We provide comprehensive assistance to individualsduring their move abroad. Our services include:
+                    </p>
+                    <ul class="text-white mb-4">
+                        <li>Planning and coordination</li>
+                        <li>Visa Process Assistance</li>
+                        <li>Budgeting</li>
+                        <li>Logistics</li>
+                        <li>Home Search</li>
+                        <li>Post-move support</li>
+                    </ul>
+                   
+                </div>
+                <div class="col-lg-6">
+                    <h1 class="text-white mb-3">Book A Consultation</h1>
+
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control bg-white border-0" id="name" placeholder="Your Name">
+                                    <label for="name">Your Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control bg-white border-0" id="email" placeholder="Your Email">
+                                    <label for="email">Your Email</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating date" id="date3" data-target-input="nearest">
+                                    <input type="text" class="form-control bg-white border-0" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
+                                    <label for="datetime">Date & Time</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <select class="form-select bg-white border-0" id="select1">
+                                        <option value="1">Japan</option>
+                                        <option value="2">Netherlands</option>
+                                        <option value="3">Mexico</option>
+                                    </select>
+                                    <label for="select1">Destination</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <select class="form-select bg-white border-0" id="SelectPerson">
+                                        <option value="1">Persons 1</option>
+                                        <option value="2">Persons 2</option>
+                                        <option value="3">Persons 3</option>
+                                    </select>
+                                    <label for="SelectPerson">Persons</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <select class="form-select bg-white border-0" id="CategoriesSelect">
+                                        <option value="1">Kids</option>
+                                        <option value="2">1</option>
+                                        <option value="3">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                    <label for="CategoriesSelect">Categories</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control bg-white border-0" placeholder="Special Request" id="message" style="height: 100px"></textarea>
+                                    <label for="message">Special Request</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-success text-white w-100 py-3" type="submit">Book Now</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Tour Booking End -->
+
+   
+    <!-- Blog Start -->
+    <div class="container-fluid blog py-5">
+        <div class="container py-5">
+            <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+                <h5 class="section-title px-3">Our Blog</h5>
+                <h1 class="mb-4">Popular Travel Blogs</h1>
+                <p class="mb-0">Here are the most popular travel blogs where individuals share their travel experiences, tips, and recommendations.
+                </p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog-item">
+                        <div class="blog-img">
+                            <div class="blog-img-inner">
+                                <img class="img-fluid w-100 rounded-top" src="assets/blog-1.jpg" alt="Image">
+                                <div class="blog-icon">
+                                    <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                            <div class="blog-info d-flex align-items-center border border-start-0 border-end-0">
+                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i>28 Jan 2023</small>
+                                <a href="#" class="btn-hover flex-fill text-center text-white border-end py-2"><i class="fa fa-thumbs-up text-primary me-2"></i>1.7K</a>
+                                <a href="#" class="btn-hover flex-fill text-center text-white py-2"><i class="fa fa-comments text-primary me-2"></i>1K</a>
+                            </div>
+                        </div>
+                        <div class="blog-content border border-top-0 rounded-bottom p-4">
+                            <p class="mb-3">Posted By: Travel Fanatic </p>
+                            <a href="#" class="h4">Trekking to Machu Pichu</a>
+                            <p class="my-3">My 10 day journey through the Peruvian mountains.</p>
+                            <a href="#" class="btn btn-success rounded-pill py-2 px-4">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog-item">
+                        <div class="blog-img">
+                            <div class="blog-img-inner">
+                                <img class="img-fluid w-100 rounded-top" src="assets/blog-2.jpg" alt="Image">
+                                <div class="blog-icon">
+                                    <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                            <div class="blog-info d-flex align-items-center border border-start-0 border-end-0">
+                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i>02 July 2024</small>
+                                <a href="#" class="btn-hover flex-fill text-center text-white border-end py-2"><i class="fa fa-thumbs-up text-primary me-2"></i>1.7K</a>
+                                <a href="#" class="btn-hover flex-fill text-center text-white py-2"><i class="fa fa-comments text-primary me-2"></i>1K</a>
+                            </div>
+                        </div>
+                        <div class="blog-content border border-top-0 rounded-bottom p-4">
+                            <p class="mb-3">Posted By: Remote Wonderer </p>
+                            <a href="#" class="h4">Hiking through the Desert</a>
+                            <p class="my-3">My experince hiking in the Atacama Desert.</p>
+                            <a href="#" class="btn btn-success rounded-pill py-2 px-4">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog-item">
+                        <div class="blog-img">
+                            <div class="blog-img-inner">
+                                <img class="img-fluid w-100 rounded-top" src="assets/blog-3.jpg" alt="Image">
+                                <div class="blog-icon">
+                                    <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                            <div class="blog-info d-flex align-items-center border border-start-0 border-end-0">
+                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i>28 Jan 2050</small>
+                                <a href="#" class="btn-hover flex-fill text-center text-white border-end py-2"><i class="fa fa-thumbs-up text-primary me-2"></i>1.7K</a>
+                                <a href="#" class="btn-hover flex-fill text-center text-white py-2"><i class="fa fa-comments text-primary me-2"></i>1K</a>
+                            </div>
+                        </div>
+                        <div class="blog-content border border-top-0 rounded-bottom p-4">
+                            <p class="mb-3">Posted By: Wonderlust </p>
+                            <a href="#" class="h4">Rocky Mountain Adventure</a>
+                            <p class="my-3">The wonders of a 4 day trip in the Rocky Mountains.</p>
+                            <a href="#" class="btn btn-success rounded-pill py-2 px-4">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog End -->
+
+    <!-- Testimonial Start -->
+    <div class="container-fluid testimonial py-5">
+        <div class="container py-5">
+            <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+                <h5 class="section-title px-3">Testimonials</h5>
+                <h1 class="mb-0">Our Clients Say!!!</h1>
+            </div>
+            <div class="testimonial-carousel owl-carousel">
+                <div class="testimonial-item text-center rounded pb-4">
+                    <div class="testimonial-comment bg-light rounded p-4">
+                        <p class="text-center mb-5"> "Working with Remotely was a game-changer. Their expertise and attention to detail made our move seamless. I highly recommend their services!" 
+                        </p>
+                    </div>
+                    <div class="testimonial-img p-1">
+                        <img src="assets/testimonial-1.jpg" class="img-fluid rounded-circle" alt="Image">
+                    </div>
+                    <div style="margin-top: -35px;">
+                        <h5 class="mb-0">John Abraham</h5>
+                        <p class="mb-0">New York, USA</p>
+                        <div class="d-flex justify-content-center">
+                     
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center rounded pb-4">
+                    <div class="testimonial-comment bg-light rounded p-4">
+                        <p class="text-center mb-5"> "Remotely provided exceptional support throughout our relocation. Their team was professional, efficient, and made the entire process stress-free." 
+                        </p>
+                    </div>
+                    <div class="testimonial-img p-1">
+                        <img src="assets/testimonial-2.jpg" class="img-fluid rounded-circle" alt="Image">
+                    </div>
+                    <div style="margin-top: -35px;">
+                        <h5 class="mb-0">Jenny Moore</h5>
+                        <p class="mb-0">Calgary, CA</p>
+                        <div class="d-flex justify-content-center">
+                         
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center rounded pb-4">
+                    <div class="testimonial-comment bg-light rounded p-4">
+                        <p class="text-center mb-5"> "I was amazed by the level of service I received from Remotely. They handled everything from packing to unpacking with care. I couldn't be happier!"
+                        </p>
+                    </div>
+                    <div class="testimonial-img p-1">
+                        <img src="assets/testimonial-3.jpg" class="img-fluid rounded-circle" alt="Image">
+                    </div>
+                    <div style="margin-top: -35px;">
+                        <h5 class="mb-0">Amanda Spears</h5>
+                        <p class="mb-0">Vancouver, CA</p>
+                        <div class="d-flex justify-content-center">
+                         
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center rounded pb-4">
+                    <div class="testimonial-comment bg-light rounded p-4">
+                        <p class="text-center mb-5">"Remotely made our long-distance move a breeze. Their friendly and knowledgeable staff went above and beyond to ensure a smooth transition."
+                        </p>
+                    </div>
+                    <div class="testimonial-img p-1">
+                        <img src="assets/testimonial-4.jpg" class="img-fluid rounded-circle" alt="Image">
+                    </div>
+                    <div style="margin-top: -35px;">
+                        <h5 class="mb-0">Samantha Jones</h5>
+                        <p class="mb-0">Toronto, CA</p>
+                        <div class="d-flex justify-content-center">
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+    <!-- Subscribe Start -->
+    <div class="container-fluid subscribe py-5">
+        <div class="container text-center py-5">
+            <div class="mx-auto text-center" style="max-width: 900px;">
+                <h5 class="subscribe-title px-3">Subscribe</h5>
+                <h1 class="text-white mb-4">Our Newsletter</h1>
+                <p class="text-white mb-5">Subscribe to your latest updates and blogs.
+                </p>
+                <div class="position-relative mx-auto">
+                    <input class="form-control border-primary rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                    <button type="button" class="btn btn-success rounded-pill position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Subscribe End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid footer py-5">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="mb-4 text-white">Get In Touch</h4>
+                        <a href=""> 123 Street, Calgary, Canada</a>
+                        <!-- <a href=""><i class="fas fa-envelope me-2"></i> info@example.com</a> -->
+                        <a href=""> +1 403 555-9999</a>
+                       
+                       
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="mb-4 text-white">Company</h4>
+                        <a href="">About</a>
+                        <a href="">Careers</a>
+                        <a href="">Blog</a>
+                        <a href="">Press</a>
+                        
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="mb-4 text-white">Support</h4>
+                        <a href=""> Contact</a>
+                        <a href="">Legal Notice</a>
+                        <a href="">Privacy Policy</a>
+                        <a href="">Terms and Conditions</a>
+                        <a href="">Sitemap</a>
+                        <a href="">Cookie policy</a>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+        </div>
+   
+    <!-- Footer End -->
+    
+  
+    
+ 
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-success btn-primary-outline-0 btn-md-square back-to-top"><i class="fa fa-arrow-up"></i></a>   
+
+
+
+
